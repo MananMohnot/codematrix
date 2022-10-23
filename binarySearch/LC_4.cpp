@@ -13,9 +13,8 @@ public:
         int n1=nums1.size();
         int n2=nums2.size();
         int n=n1+n2;
-         
-      if(n1>n2)  return findMedianSortedArrays(nums2,nums1);
-        
+
+        if(n1>n2)  return findMedianSortedArrays(nums2,nums1);
      // When length is even, let's say 10 then left half length should be: (10+1)/2 =>5
      // When length is odd, let's say 11 then left half length should be: (11+1)/2 =>6
         // This mean that this formula gonna work in both condition
@@ -40,7 +39,7 @@ public:
         //Findout 'cut1' and 'cut2'
         cut1=(left1+right1)/2;
         cut2=partition-cut1;
-   
+        
         // Calculation for l1
         l1=cut1==0?INT_MIN:nums1[cut1-1];
         
@@ -55,16 +54,14 @@ public:
         
         if(l1<=r2&&l2<=r1)
              // Return Result
-             return n%2?max(l1,l2):(max(l1,l2)+min(r1,r2))/2.0;
+            return n%2?max(l1,l2):(max(l1,l2)+min(r1,r2))/2.0;
         else
             
         if(l1>r2)
             right1=cut1-1;
         else
-             left1=cut1+1;
-       
-       
+            left1=cut1+1;
     }while(left1<=right1);
-        
-             
     return 0.0;
+    }
+};
